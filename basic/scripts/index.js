@@ -22,7 +22,7 @@ while (i < quiz.length)  {
   front.innerHTML = quiz[i].question;
   document.getElementById('front').onclick = function() {
   let ele1 = document.getElementById('front');
-  ele1.innerHTML = quiz.answer;
+  ele1.innerHTML = quiz[i].answer;
 }
   ++i
 }
