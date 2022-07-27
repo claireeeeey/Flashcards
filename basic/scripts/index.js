@@ -16,22 +16,17 @@ quiz.push(new cards('What color is the sky?', 'blue'));
 quiz.push(new cards('Is ice cold?', 'yes'));
 quiz.push(new cards('what date is today?', 'idk'));
 
-//Use while loop to iterate over the array, print out the question and add a listener
-let i = 0;
-while (i < quiz.length)  {
-  front.innerHTML = quiz[i].question;
-  document.getElementById('front').onclick = function() {
-  let ele1 = document.getElementById('front');
-  ele1.innerHTML = quiz[i].answer;
-}
-  ++i
+let cardindex = 0;
+//Add a listener that print out the answer when clicking the question
+document.getElementById('front').onclick = function() {
+  back.innerHTML = quiz[cardindex].answer;
 }
 
 //Function for the previous and next button to display the question one at a time
-let cardindex = 0;
 function next() {
   cardindex = (cardindex + 1) % quiz.length;
   front.innerHTML = quiz[cardindex].question;
+  back.innerHTML = "";
 }
 function previous() {
   if (cardindex > 0) {
@@ -40,5 +35,5 @@ function previous() {
     cardindex = quiz.length - 1;
 }
   front.innerHTML = quiz[cardindex].question;
+  back.innerHTML = "";
 }
-
